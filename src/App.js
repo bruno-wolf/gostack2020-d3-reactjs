@@ -13,7 +13,13 @@ function App() {
   },[]); 
 
   async function handleAddRepository() {
-    // TODO
+    const response = await api.post('/repositories', {
+      title: "gostack2020-d3-reactjs",
+      url: "https://github.com/bruno-wolf/gostack2020-d3-reactjs",
+      techs: [ "ReactJS", "Axios", ],
+      likes: 0
+    })
+    setRepositories([...repositories, response.data]);
   }
 
   async function handleRemoveRepository(id) {
